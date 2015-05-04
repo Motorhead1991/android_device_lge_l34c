@@ -21,6 +21,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0xFF200100
+BOARD_KERNEL_SEPARATED_DT := true
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 23068672 #22m (mmcblk0p16)
@@ -31,10 +32,15 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1924661248 #1.8g (mmcblk0p34)
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # recovery
-TARGET_RECOVERY_INITRC := device/lge/lgl34c/recovery/recovery.rc
+# TARGET_RECOVERY_INITRC := device/lge/lgl34c/recovery/recovery.rc
 TARGET_RECOVERY_FSTAB := device/lge/lgl34c/recovery/fstab.lgl34c
 RECOVERY_FSTAB_VERSION := 2
 
-TARGET_PREBUILT_KERNEL := device/lge/lgl34c/kernel
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/lgl34c/mkbootimg.mk
+TARGET_REQUIRES_BUMP := true
+# TARGET_PREBUILT_KERNEL := device/lge/lgl34c/kernel
+TARGET_KERNEL_SOURCE := kernel/lge/l34c
+TARGET_KERNEL_CONFIG := fuel_defconfig
 
 BOARD_HAS_NO_SELECT_BUTTON := true
