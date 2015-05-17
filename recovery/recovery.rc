@@ -7,7 +7,7 @@ on early-init
 
 on fs
     # mount All The Things
-    mount_all ./fstab.lgl34c
+    mount_all ./fstab.l34c
     setprop ro.crypto.fuse_sdcard true
 
 
